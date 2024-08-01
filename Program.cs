@@ -20,10 +20,10 @@ namespace GuitarOOADDemo
             DisplayGuitarDetails(inventory.GetGuitar("NO3"));
 
 
-            Guitar clientGuitar = new Guitar("NO2", 12000, Builder.TACOMA, "Bass", TypeGuitar.ARCHTOP, Wood.MAPLE, Wood.MAPLE);
-            List<Guitar> guitars = inventory.Search(clientGuitar);
+            GuitarSpec clientGuitarSpec = new GuitarSpec(Builder.TACOMA, "Bass", TypeGuitar.ARCHTOP, Wood.MAPLE, Wood.MAPLE);
+            List<Guitar> guitars = inventory.Search(clientGuitarSpec);
 
-            if (guitars != null)
+            if (guitars.Count > 0)
             {
                 Console.WriteLine("\nThe guitar the client wanted was found:");
                 foreach (Guitar guitar in guitars)
@@ -41,11 +41,11 @@ namespace GuitarOOADDemo
             {
                 Console.WriteLine($"Serial Number: {guitar.SerialNumber}");
                 Console.WriteLine($"Price: ${guitar.Price}");
-                Console.WriteLine($"Builder: {guitar.Builder}");
-                Console.WriteLine($"Model: {guitar.Model}");
-                Console.WriteLine($"Type: {guitar.Type}");
-                Console.WriteLine($"Back Wood: {guitar.BackWood}");
-                Console.WriteLine($"Top Wood: {guitar.TopWood}\n");
+                Console.WriteLine($"Builder: {guitar.Spec.Builder}");
+                Console.WriteLine($"Model: {guitar.Spec.Model}");
+                Console.WriteLine($"Type: {guitar.Spec.Type}");
+                Console.WriteLine($"Back Wood: {guitar.Spec.BackWood}");
+                Console.WriteLine($"Top Wood: {guitar.Spec.TopWood}\n");
             }
 
         }
