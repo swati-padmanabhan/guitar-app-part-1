@@ -9,9 +9,9 @@ namespace GuitarOOADDemo
             Inventory inventory = new Inventory();
 
             // Add some guitars to the inventory
-            inventory.AddGuitar("NO1", 25000, "Airline", "Electric", "Resonator", "Classical", "Cedar");
-            inventory.AddGuitar("NO2", 12000, "Aria", "Bass", "Electric", "Lapsteel", "Maple");
-            inventory.AddGuitar("NO3", 5000, "Avalon", "Fender", "Baritone", "Flamenco", "Ebony");
+            inventory.AddGuitar("NO1", 25000, Builder.NATIONAL, "Electric", TypeGuitar.ELECTRIC, Wood.KOA, Wood.WALNUT);
+            inventory.AddGuitar("NO2", 12000, Builder.TACOMA, "Bass", TypeGuitar.ARCHTOP, Wood.MAPLE, Wood.MAPLE);
+            inventory.AddGuitar("NO3", 5000, Builder.PARKER, "Fender", TypeGuitar.FLAMENCO, Wood.ROSEWOOD, Wood.EBONY);
 
             // Display all guitars in the inventory
             Console.WriteLine("All Guitars in Inventory:");
@@ -20,7 +20,7 @@ namespace GuitarOOADDemo
             DisplayGuitarDetails(inventory.GetGuitar("NO3"));
 
 
-            Guitar clientGuitar = new Guitar("SN123", 1500, "Fender", "Stratocaster", "Electric", "Alder", "Alder");
+            Guitar clientGuitar = new Guitar("NO2", 12000, Builder.TACOMA, "Bass", TypeGuitar.ARCHTOP, Wood.MAPLE, Wood.MAPLE);
             Guitar guitar = inventory.Search(clientGuitar);
 
             if (guitar != null)

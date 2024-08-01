@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GuitarOOADDemo.Models
+﻿namespace GuitarOOADDemo.Models
 {
     internal class Inventory
     {
         public List<Guitar> Guitars { get; set; } = new List<Guitar>();
 
 
-        public void AddGuitar(string serialNumber, double price, string builder, string model, string type, string backWood, string topWood)
+        public void AddGuitar(string serialNumber, double price, Builder builder, string model, TypeGuitar type, Wood backWood, Wood topWood)
         {
             Guitar guitar = new Guitar(serialNumber, price, builder, model, type, backWood, topWood);
             Guitars.Add(guitar);
