@@ -21,12 +21,15 @@ namespace GuitarOOADDemo
 
 
             Guitar clientGuitar = new Guitar("NO2", 12000, Builder.TACOMA, "Bass", TypeGuitar.ARCHTOP, Wood.MAPLE, Wood.MAPLE);
-            Guitar guitar = inventory.Search(clientGuitar);
+            List<Guitar> guitars = inventory.Search(clientGuitar);
 
-            if (guitar != null)
+            if (guitars != null)
             {
                 Console.WriteLine("\nThe guitar the client wanted was found:");
-                DisplayGuitarDetails(guitar);
+                foreach (Guitar guitar in guitars)
+                {
+                    DisplayGuitarDetails(guitar);
+                }
             }
             else
                 Console.WriteLine("\nThe guitar the client wanted was not found:");

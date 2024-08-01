@@ -16,9 +16,10 @@
             return Guitars.Find(guitar => guitar.SerialNumber.Equals(serialNumber));
         }
 
-        public Guitar Search(Guitar searchGuitar)
+        public List<Guitar> Search(Guitar searchGuitar)
         {
-            return Guitars.Find(guitar =>
+            List<Guitar> matchingGuitars = new List<Guitar>();
+            return Guitars.FindAll(guitar =>
                 (searchGuitar.Builder == null || searchGuitar.Builder.Equals(guitar.Builder)) &&
                 (searchGuitar.Model == null || searchGuitar.Model.Equals(guitar.Model)) &&
                 (searchGuitar.Type == null || searchGuitar.Type.Equals(guitar.Type)) &&
