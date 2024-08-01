@@ -7,14 +7,16 @@
         public TypeGuitar Type { get; set; }
         public Wood BackWood { get; set; }
         public Wood TopWood { get; set; }
+        public int NumStrings { get; set; }
 
-        public GuitarSpec(Builder builder, string model, TypeGuitar type, Wood backWood, Wood topWood)
+        public GuitarSpec(Builder builder, string model, TypeGuitar type, Wood backWood, Wood topWood, int numStrings)
         {
             Builder = builder;
             Model = model;
             Type = type;
             BackWood = backWood;
             TopWood = topWood;
+            NumStrings = numStrings;
         }
 
     }

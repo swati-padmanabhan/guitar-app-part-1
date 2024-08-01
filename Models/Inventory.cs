@@ -5,9 +5,9 @@
         public List<Guitar> Guitars { get; set; } = new List<Guitar>();
 
 
-        public void AddGuitar(string serialNumber, double price, Builder builder, string model, TypeGuitar type, Wood backWood, Wood topWood)
+        public void AddGuitar(string serialNumber, double price, Builder builder, string model, TypeGuitar type, Wood backWood, Wood topWood, int numStrings)
         {
-            GuitarSpec spec = new GuitarSpec(builder, model, type, backWood, topWood);
+            GuitarSpec spec = new GuitarSpec(builder, model, type, backWood, topWood, numStrings);
             Guitar guitar = new Guitar(serialNumber, price, spec);
             Guitars.Add(guitar);
         }
@@ -25,7 +25,8 @@
                 (searchSpec.Model == null || searchSpec.Model.Equals(guitar.Spec.Model)) &&
                 (searchSpec.Type == null || searchSpec.Type.Equals(guitar.Spec.Type)) &&
                 (searchSpec.BackWood == null || searchSpec.BackWood.Equals(guitar.Spec.BackWood)) &&
-                (searchSpec.TopWood == null || searchSpec.TopWood.Equals(guitar.Spec.TopWood))
+                (searchSpec.TopWood == null || searchSpec.TopWood.Equals(guitar.Spec.TopWood)) &&
+                (searchSpec.NumStrings == 0 || searchSpec.NumStrings == (guitar.Spec.NumStrings))
             );
         }
     }
